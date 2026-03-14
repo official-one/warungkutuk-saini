@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warung Kutuk Bu Saini | Menu</title>
+  <meta name="description" content="Menu Warung Kutuk Bu Saini — Kuliner legendaris khas Blitar sejak 1966. Lodeh Iwak Kutuk, Rawon, Jangan Tewel dan lauk pendamping lainnya." />
+  <!-- Schema Markup untuk SEO lokal -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Warung Kutuk Bu Saini",
+    "description": "Warung makan legendaris khas Blitar sejak 1966, spesialis Lodeh Iwak Kutuk.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Raya Kediri - Blitar No.13",
+      "addressLocality": "Kalipucung, Sanankulon",
+      "addressRegion": "Kabupaten Blitar",
+      "postalCode": "66151",
+      "addressCountry": "ID"
+    },
+    "telephone": "+6285234006947",
+    "openingHours": "Mo-Su 06:00-18:00",
+    "servesCuisine": "Javanese",
+    "foundingDate": "1966"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ══════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════ */
+    :root {
+      --coklat:        #3B1F0A;
+      --coklat-mid:    #6B3A1F;
+      --coklat-light:  #9B6347;
+      --kunyit:        #C9882A;
+      --kunyit-light:  #F0B84A;
+      --kunyit-pale:   #FDE8BB;
+      --krem:          #FDF6EC;
+      --krem-dark:     #F5E8D0;
+      --krem-darker:   #EDD8B4;
+      --hijau:         #4A6741;
+      --hijau-light:   #EAF3DE;
+      --text:          #2A1508;
+      --text-muted:    #7A5C3E;
+      --text-light:    #B89070;
+      --white:         #FFFFFF;
+      --shadow-sm:     0 1px 4px rgba(59,31,10,.08);
+      --shadow-md:     0 4px 16px rgba(59,31,10,.12);
+      --shadow-lg:     0 8px 32px rgba(59,31,10,.16);
+      --radius-sm:     8px;
+      --radius-md:     12px;
+      --radius-lg:     16px;
+    }
+
+    /* ══════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--krem);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════ */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--coklat);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 54px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    .navbar-brand span { color: var(--kunyit-light); }
+    .navbar-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    .navbar-links a {
+      color: rgba(255,255,255,.65);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+    .navbar-links a:hover { color: var(--kunyit-light); }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      background: var(--coklat);
+      padding: 36px 24px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 24px,
+          rgba(255,255,255,.018) 24px,
+          rgba(255,255,255,.018) 25px
+        );
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 32px;
+      background: var(--krem);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--kunyit);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 3px;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 6vw, 40px);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .hero h1 em { color: var(--kunyit-light); font-style: italic; }
+    .hero-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .03em;
+      margin-bottom: 20px;
+    }
+    .hero-pills {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 99px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .pill-jam {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--kunyit-light);
+    }
+    .pill-warn {
+      background: rgba(201,136,42,.2);
+      border: 1px solid rgba(201,136,42,.35);
+      color: var(--kunyit-light);
+    }
+    .jam-dot {
+      width: 7px; height: 7px;
+      background: #5EBB6A;
+      border-radius: 50%;
+      animation: blink 1.8s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    /* ══════════════════════════════════════
+       FILTER BAR
+    ══════════════════════════════════════ */
+    .filter-wrap {
+      background: var(--white);
+      border-bottom: 1.5px solid var(--krem-dark);
+      padding: 0 16px;
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      position: sticky;
+      top: 54px;
+      z-index: 50;
+    }
+    .filter-wrap::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      padding: 13px 16px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2.5px solid transparent;
+      transition: all .2s;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+    .filter-btn.active {
+      color: var(--kunyit);
+      border-bottom-color: var(--kunyit);
+    }
+    .filter-btn:hover:not(.active) { color: var(--coklat); }
+
+    /* ══════════════════════════════════════
+       MENU SECTION
+    ══════════════════════════════════════ */
+    .menu-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 24px 16px 16px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .section-header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--coklat);
+      white-space: nowrap;
+    }
+    .section-header-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--krem-darker), transparent);
+    }
+    .section-header-count {
+      font-size: 11px;
+      color: var(--text-light);
+      font-weight: 700;
+      letter-spacing: .06em;
+      white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════════
+       MENU GRID
+    ══════════════════════════════════════ */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* Card base */
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--krem-dark);
+      transition: transform .22s cubic-bezier(.34,1.36,.64,1), box-shadow .22s;
+      cursor: pointer;
+      animation: fadeUp .45s ease both;
+      display: flex;
+      flex-direction: column;
+    }
+    .menu-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: var(--shadow-lg);
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .menu-card:nth-child(1) { animation-delay: .04s; }
+    .menu-card:nth-child(2) { animation-delay: .08s; }
+    .menu-card:nth-child(3) { animation-delay: .12s; }
+    .menu-card:nth-child(4) { animation-delay: .16s; }
+    .menu-card:nth-child(5) { animation-delay: .20s; }
+    .menu-card:nth-child(6) { animation-delay: .24s; }
+    .menu-card:nth-child(7) { animation-delay: .28s; }
+    .menu-card:nth-child(8) { animation-delay: .32s; }
+
+    /* Image area */
+    .card-img {
+      position: relative;
+      height: 116px;
+      background: var(--krem-dark);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .45s cubic-bezier(.25,.46,.45,.94);
+    }
+    .menu-card:hover .card-img img { transform: scale(1.08); }
+    .card-emoji {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+    }
+    .card-tag {
+      position: absolute;
+      top: 8px; left: 8px;
+      background: var(--kunyit);
+      color: white;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .card-tag.hijau { background: var(--hijau); }
+    .card-tag.merah { background: #B83232; }
+
+    /* Body */
+    .card-body {
+      padding: 11px 12px 13px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--coklat);
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+    .card-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .card-price {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--kunyit);
+      line-height: 1;
+    }
+    .card-price small {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--text-light);
+      display: block;
+      margin-top: 2px;
+    }
+    .btn-pesan {
+      background: var(--coklat);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 11px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background .15s, transform .1s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-pesan:hover { background: var(--kunyit); transform: scale(1.04); }
+    .btn-pesan:active { transform: scale(.97); }
+
+    /* Featured card (spans full width) */
+    .card-featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
+    .card-featured .card-img {
+      width: 150px;
+      height: auto;
+      min-height: 130px;
+      flex-shrink: 0;
+    }
+    .card-featured .card-name { font-size: 17px; }
+    .card-featured .card-desc { -webkit-line-clamp: 3; font-size: 12.5px; }
+    .card-featured .card-body { padding: 14px 14px 14px; }
+
+    /* Ornamen banner andalan */
+    .card-featured .card-img::after {
+      content: '★ ANDALAN';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(59,31,10,.75), transparent);
+      color: var(--kunyit-light);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      padding: 10px 10px 7px;
+      text-align: center;
+    }
+
+    /* Hidden state */
+    .menu-card.hidden {
+      display: none !important;
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+    .empty-state-icon { font-size: 40px; margin-bottom: 10px; }
+    .empty-state p { font-size: 14px; }
+
+    /* ══════════════════════════════════════
+       INFO STRIP
+    ══════════════════════════════════════ */
+    .info-strip {
+      max-width: 680px;
+      margin: 24px auto 0;
+      padding: 0 16px;
+    }
+    .info-strip-inner {
+      background: var(--coklat);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .info-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .info-label {
+      font-size: 9px;
+      color: rgba(255,255,255,.4);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 3px;
+    }
+    .info-val {
+      font-size: 12px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.5;
+    }
+    .info-val strong { color: var(--kunyit-light); font-size: 13px; }
+
+    /* ══════════════════════════════════════
+       MAP PLACEHOLDER
+    ══════════════════════════════════════ */
+    .map-section {
+      max-width: 680px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+    }
+    .map-placeholder {
+      background: var(--krem-dark);
+      border: 1.5px dashed var(--krem-darker);
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .map-placeholder:hover { background: var(--krem-darker); }
+    .map-icon { font-size: 32px; margin-bottom: 8px; }
+    .map-placeholder p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .map-placeholder small {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* ══════════════════════════════════════
+       SEJARAH / STORY STRIP
+    ══════════════════════════════════════ */
+    .story-section {
+      max-width: 680px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+    }
+    .story-card {
+      background: var(--kunyit-pale);
+      border: 1.5px solid var(--krem-darker);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px; right: 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: 100px;
+      color: var(--kunyit);
+      opacity: .18;
+      line-height: 1;
+    }
+    .story-year {
+      display: inline-block;
+      background: var(--kunyit);
+      color: white;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 3px 10px;
+      border-radius: 3px;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+    .story-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: var(--coklat);
+      margin-bottom: 8px;
+    }
+    .story-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════
+       CTA WHATSAPP
+    ══════════════════════════════════════ */
+    .cta-section {
+      max-width: 680px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+    }
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #25D366;
+      color: white;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s, transform .15s, box-shadow .15s;
+      box-shadow: 0 4px 16px rgba(37,211,102,.3);
+    }
+    .btn-wa:hover {
+      background: #1db954;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,.4);
+    }
+    .btn-wa:active { transform: scale(.98); }
+    .wa-icon { flex-shrink: 0; }
+
+    /* ══════════════════════════════════════
+       SOSMED / FOOTER
+    ══════════════════════════════════════ */
+    .footer {
+      max-width: 680px;
+      margin: 24px auto 0;
+      padding: 0 16px 40px;
+      text-align: center;
+    }
+    .footer-sosmed {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .sosmed-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: 1.5px solid var(--krem-dark);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color .15s, color .15s;
+    }
+    .sosmed-btn:hover { border-color: var(--coklat-light); color: var(--coklat); }
+    .footer-copy {
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .footer-copy strong { color: var(--text-muted); }
+
+    /* ══════════════════════════════════════
+       TOAST NOTIF
+    ══════════════════════════════════════ */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--coklat);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 99px;
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+      transition: transform .3s cubic-bezier(.34,1.36,.64,1);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 400px) {
+      .menu-grid { grid-template-columns: 1fr; }
+      .card-featured { flex-direction: column; }
+      .card-featured .card-img { width: 100%; height: 160px; }
+      .info-strip-inner { grid-template-columns: 1fr; }
+      .navbar-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Warung <span>Kutuk</span></a>
+    <ul class="navbar-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-badge">⭐ Legendaris Sejak 1966</div>
+      <h1>Warung Kutuk<br><em>Bu Saini</em></h1>
+      <p class="hero-tagline">Jl. Raya Kediri–Blitar · Kalipucung, Sanankulon · Blitar</p>
+      <div class="hero-pills">
+        <div class="pill pill-jam">
+          <div class="jam-dot"></div>
+          Buka Sekarang · 06.00–18.00 WIB
+        </div>
+        <div class="pill pill-warn">
+          ⚡ Sering habis sebelum dzuhur!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FILTER ══ -->
+  <div class="filter-wrap" id="menu">
+    <button class="filter-btn active" onclick="filterMenu('semua', this)">🍽 Semua</button>
+    <button class="filter-btn" onclick="filterMenu('andalan', this)">⭐ Andalan</button>
+    <button class="filter-btn" onclick="filterMenu('kuah', this)">🍲 Berkuah</button>
+    <button class="filter-btn" onclick="filterMenu('sayur', this)">🌿 Sayur</button>
+    <button class="filter-btn" onclick="filterMenu('lauk', this)">🍗 Lauk</button>
+    <button class="filter-btn" onclick="filterMenu('minuman', this)">🥤 Minuman</button>
+  </div>
+
+  <!-- ══ MENU GRID ══ -->
+  <section class="menu-section">
+    <div class="section-header">
+      <h2 class="section-header-title">Menu Hari Ini</h2>
+      <div class="section-header-line"></div>
+      <span class="section-header-count" id="menuCount">8 item</span>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+
+      <!-- ① LODEH IWAK KUTUK — Featured -->
+      <article class="menu-card card-featured" data-cat="andalan kuah" onclick="pesanMenu('Lodeh Iwak Kutuk - porsi kecil (Rp 20.000)')">
+        <div class="card-img">
+          <!-- Ganti src di bawah dengan foto asli lodeh iwak kutuk -->
+          <!-- <img src="img/lodeh-iwak-kutuk.jpg" alt="Lodeh Iwak Kutuk khas Blitar" loading="lazy"> -->
+          <div class="card-emoji">🐟</div>
+          <div class="card-tag">Spesial</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Lodeh Iwak Kutuk</div>
+          <div class="card-desc">Ikan gabus segar dimasak santan kental dengan rempah Jawa pilihan. Gurih, pedas, dan kaya khasiat protein. Menu favorit yang selalu habis duluan!</div>
+          <div class="card-footer">
+            <div class="card-price">
+              Rp 20.000
+              <small>porsi kecil / Rp 50.000 porsi besar</small>
+            </div>
+            <button class="btn-pesan" onclick="event.stopPropagation(); pesanMenu('Lodeh Iwak Kutuk')">Pesan WA</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ② RAWON -->
+      <article class="menu-card" data-cat="andalan kuah" onclick="pesanMenu('Rawon (Rp 28.000)')">
+        <div class="card-img">
+          <!-- <img src="img/rawon.jpg" alt="Rawon khas Jawa Timur" loading="lazy"> -->
+          <div class="card-emoji">🍲</div>
+          <div class="card-tag">Andalan</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Rawon</div>
+          <div class="card-desc">Kuah kluwak hitam pekat, daging sapi empuk, rempah mantap khas Jawa Timur.</div>
+          <div class="card-footer">
+            <div class="card-price">Rp 28.000</div>
+            <button class="btn-pesan" onclick="event.stopPropagation(); pesanMenu('Rawon')">Pesan WA</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ③ JANGAN TEWEL -->
+      <article class="menu-card" data-cat="andalan sayur" onclick="pesanMenu('Jangan Tewel (Rp 45.000)')">
+        <div class="card-img">
+          <!-- <img src="img/jangan-tewel.jpg" alt="Jangan Tewel nangka muda" loading="lazy"> -->
+          <div class="card-emoji">🌿</div>
+          <div class="card-tag hijau">Favorit</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Jangan Tewel</div>
+          <div class="card-desc">Nangka muda empuk meresap santan gurih pedas spesial khas Blitar.</div>
+          <div class="card-footer">
+            <div class="card-price">Rp 45.000</div>
+            <button class="btn-pesan" onclick="event.stopPropagation(); pesanMenu('Jangan Tewel')">Pesan WA</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ④ NASI PUTIH -->
+      <article class="menu-card" data-cat="lauk" onclick="pesanMenu('Nasi Putih (Rp 5.000)')">
+        <div class="card-img">
+          <div class="card-emoji">🍚</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Nasi Putih</div>
+          <div class="card-desc">Nasi pulen hangat, wajib teman semua lauk Bu Saini.</div>
+          <div class="card-footer">
+            <div class="card-price">Rp 5.000</div>
+            <button class="btn-pesan" onclick="event.stopPropagation(); pesanMenu('Nasi Putih')">Pesan WA</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ⑤ TAHU TEMPE -->
+      <article class="menu-card" data-cat="lauk" onclick="pesanMenu('Tahu/Tempe Goreng (Rp 3.000/biji)')">
+        <div class="card-img">
+          <div class="card-emoji">🟡</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Tahu Tempe Goreng</div>
+          <div class="card-desc">Renyah berlapis, bumbu kunyit khas. Cocok jadi lauk pendamping.</div>
+          <div class="card-footer">
+            <div class="card-price">
+              Rp 3.000
+              <small>per biji</small>
+            </div>
+            <button class="btn-pesan" onclick="event.stopPropagation(); pesanMenu('Tahu Tempe Goreng')">Pesan WA</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ⑥ PEPES IKAN -->
+      <article class="menu-card" data-cat="lauk kuah" onclick="pesanMenu('Pepes Ikan (Rp 10.000)')">
+        <div class="card-img">
+          <div class="card-emoji">🫕</div>
+          <div class="card-tag hijau">Ada</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Pepes Ikan</div>
+          <div class="card-desc">Ikan bumbu rempah dibungkus daun pisang, dipanggang harum.</div>
+          <div class="card-footer">
+            <div class="card-price">Rp 10.000</div>
+            <button class="btn-pesan" onclick="event.stopPropagation(); pesanMenu('Pepes Ikan')">Pesan WA</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ⑦ ES TEH -->
+      <article class="menu-card" data-cat="minuman" onclick="pesanMenu('Es Teh Manis (Rp 5.000)')">
+        <div class="card-img">
+          <div class="card-emoji">🧊</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Es Teh Manis</div>
+          <div class="card-desc">Teh manis segar, penyempurna makan siang yang pas.</div>
+          <div class="card-footer">
+            <div class="card-price">Rp 5.000</div>
+            <button class="btn-pesan" onclick="event.stopPropagation(); pesanMenu('Es Teh Manis')">Pesan WA</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ⑧ ES JERUK -->
+      <article class="menu-card" data-cat="minuman" onclick="pesanMenu('Es Jeruk (Rp 7.000)')">
+        <div class="card-img">
+          <div class="card-emoji">🍊</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Es Jeruk Peras</div>
+          <div class="card-desc">Jeruk segar diperas langsung, manis asem segar.</div>
+          <div class="card-footer">
+            <div class="card-price">Rp 7.000</div>
+            <button class="btn-pesan" onclick="event.stopPropagation(); pesanMenu('Es Jeruk Peras')">Pesan WA</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Empty state (hidden by default) -->
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-state-icon">🍽</div>
+        <p>Tidak ada menu di kategori ini.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ INFO STRIP ══ -->
+  <section class="info-strip" id="kontak">
+    <div class="info-strip-inner">
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Lokasi</div>
+          <div class="info-val">Jl. Raya Kediri–Blitar No.13<br>Kalipucung, Sanankulon, Blitar</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div>
+          <div class="info-label">Jam Buka</div>
+          <div class="info-val"><strong>06.00 – 18.00 WIB</strong><br>Buka setiap hari</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Telepon</div>
+          <div class="info-val"><a href="tel:+6285234006947" style="color:var(--kunyit-light);text-decoration:none;">085-234-006-947</a></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">⚡</div>
+        <div>
+          <div class="info-label">Info Stok</div>
+          <div class="info-val">Sering habis sebelum pukul <strong>12 siang</strong> — datang pagi!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MAP PLACEHOLDER ══ -->
+  <section class="map-section">
+    <div class="map-placeholder" onclick="window.open('https://maps.google.com/?q=Warung+Kutuk+Bu+Saini+Blitar','_blank')">
+      <div class="map-icon">🗺</div>
+      <p><strong>Buka di Google Maps</strong></p>
+      <small>Jl. Raya Kediri–Blitar No.13, Kalipucung, Sanankulon, Blitar 66151</small>
+    </div>
+    <!-- 
+      CARA EMBED GOOGLE MAPS ASLI:
+      1. Buka maps.google.com, cari lokasi warung
+      2. Klik Share → Embed a map
+      3. Salin kode <iframe> dan tempel di sini, ganti div.map-placeholder
+    -->
+  </section>
+
+  <!-- ══ CERITA / SEJARAH ══ -->
+  <section class="story-section" id="tentang">
+    <div class="story-card">
+      <div class="story-year">🏮 Berdiri Tahun 1966</div>
+      <h3 class="story-title">60 Tahun Merawat Cita Rasa Jawa</h3>
+      <p class="story-text">
+        Warung Kutuk Bu Saini bermula dari dapur kecil di Blitar, ketika Bu Saini mulai memasak lodeh ikan gabus dengan resep warisan keluarganya. Dari hidangan untuk tetangga, warung ini berkembang menjadi destinasi kuliner legendaris yang tak tergantikan. Kini, generasi penerus terus menjaga keaslian rasa yang sudah dicintai selama lebih dari enam dekade.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ CTA WHATSAPP ══ -->
+  <section class="cta-section">
+    <a class="btn-wa" href="https://wa.me/6285234006947?text=Halo%20Bu%20Saini%2C%20saya%20mau%20pesan%20makan" target="_blank" rel="noopener">
+      <svg class="wa-icon" width="22" height="22" viewBox="0 0 24 24" fill="white">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Pesan via WhatsApp Sekarang
+    </a>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <div class="footer-sosmed">
+      <!-- Ganti href dengan link sosmed asli jika ada -->
+      <a class="sosmed-btn" href="#" onclick="showToast('Link Instagram belum tersedia')">📸 Instagram</a>
+      <a class="sosmed-btn" href="#" onclick="showToast('Link Facebook belum tersedia')">👍 Facebook</a>
+      <a class="sosmed-btn" href="#" onclick="showToast('Link TikTok belum tersedia')">🎵 TikTok</a>
+    </div>
+    <p class="footer-copy">
+      <strong>Warung Kutuk Bu Saini</strong> · Legendaris sejak 1966<br>
+      Jl. Raya Kediri–Blitar No.13, Kalipucung, Sanankulon, Blitar 66151<br>
+      <span style="font-size:10px; margin-top:6px; display:block;">© 2025 Warung Kutuk Bu Saini. Semua hak dilindungi.</span>
+    </p>
+  </footer>
+
+  <!-- ══ TOAST ══ -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    /* ── Filter menu ── */
+    function filterMenu(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.menu-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        if (cat === 'semua') {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          const cats = (card.dataset.cat || '').toLowerCase();
+          const show = cats.includes(cat);
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        }
+      });
+
+      const emptyEl = document.getElementById('emptyState');
+      emptyEl.classList.toggle('hidden', visible > 0);
+
+      document.getElementById('menuCount').textContent = visible + ' item';
+    }
+
+    /* ── Pesan via WA ── */
+    function pesanMenu(nama) {
+      const msg = encodeURIComponent('Halo Bu Saini, saya mau pesan: ' + nama + '. Apakah masih tersedia?');
+      window.open('https://wa.me/6285234006947?text=' + msg, '_blank');
+    }
+
+    /* ── Toast notif ── */
+    function showToast(pesan) {
+      const t = document.getElementById('toast');
+      t.textContent = pesan;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2800);
+    }
+  </script>
+
+</body>
+</html>
