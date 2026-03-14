@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Warung Kutuk Bu Saini | Kutuk Legendaris Kediri-Blitar</title>
+  <meta name="description" content="Nikmati olahan ikan kutuk asli resep turun-temurun Bu Saini. Lodeh kutuk pedas, rica-rica, dan menu rumahan khas Jawa. Pesan via WA!"/>
+  
+  <!-- Google Fonts: Poppins modern + Lora untuk nuansa klasik -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lora:wght@600&display=swap" rel="stylesheet"/>
+  
+  <style>
+    :root {
+      --primary: #c8102e;      /* merah bata Jawa */
+      --dark: #3c2f2f;
+      --light: #fffaf0;
+      --accent: #f4a261;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(img/Cuplikan\ Layar_2026-01-12_09-35-52.png) center/cover;
+      color: whitesmoke;
+      text-align: center;
+      padding: 120px 20px 80px;
+      background-blend-mode: darken;
+    }
+    h1 { font-family: 'Lora', serif; font-size: 3rem; margin-bottom: 12px; }
+    .tagline { font-size: 1.3rem; margin-bottom: 30px; }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 20px rgba(200,16,46,0.3);
+      transition: all 0.3s;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,16,46,0.4); }
+    
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    h2 { font-family: 'Lora', serif; color: var(--primary); text-align: center; margin-bottom: 40px; font-size: 2.4rem; }
+    
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .menu-item {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .menu-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .menu-info { padding: 20px; }
+    .price { font-size: 1.4rem; font-weight: 600; color: var(--primary); margin: 10px 0; }
+    
+    .contact { background: var(--dark); color: white; text-align: center; }
+    .contact a { color: var(--accent); }
+    
+    footer { background: #222; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; }
+    
+    @media (max-width: 600px) {
+      h1 { font-size: 2.4rem; }
+      header { padding: 80px 15px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Warung Kutuk Bu Saini</h1>
+    <p class="tagline">Rasa Jawa Klasik • Ikan Kutuk Legendaris sejak turun-temurun</p>
+    <a href="https://wa.me/6285234006947?text=Halo%20Bu%20Saini,%20saya%20mau%20pesan%20lodeh%20kutuk%20dong!" class="btn">Pesan Sekarang via WA</a>
+  </header>
+
+  <section id="tentang">
+    <h2>Tentang Kami</h2>
+    <p style="max-width:800px; margin:auto; font-size:1.1rem; text-align:center;">
+      Warung Kutuk Bu Saini sudah menjadi langganan warga Kediri-Blitar puluhan tahun. 
+      Spesialis olahan <strong>iwak kutuk</strong> (ikan gabus) segar dengan bumbu racikan turun-temurun: 
+      lodeh kutuk pedas mantap, rica-rica, pepes, dan menu rumahan lainnya. 
+      Rasanya khas Jawa Timur, bikin kangen kampung!
+    </p>
+  </section>
+
+  <section id="menu" style="background:#fef8f4;">
+    <h2>Menu Andalan</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="img/dreamina-2026-02-11-1868-Edit Image 1, remove the plate of rice a....jpeg" alt="Lodeh Kutuk">
+        <div class="menu-info">
+          <h3>Lodeh Kutuk Pedas</h3>
+          <p class="price">Rp 30.000 – 50.000</p>
+          <small>Tergantung ukuran ikan</small>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="img/empal-daging-sapijpg-20251110011902.webp" alt="empal daging sapi">
+        <div class="menu-info">
+          <h3>Empal daging sapi</h3>
+          <p class="price">Rp 35.000 – 55.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="img/6556dc6484a92.jpg" alt="Nasi Rawon Daging Sapi">
+        <div class="menu-info">
+          <h3>Nasi Rawon Daging Sapi</h3>
+          <p class="price">Mulai Rp 6.000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hubungi" class="contact">
+    <h2>Hubungi Kami</h2>
+    <p>Jl. Raya Kediri - Blitar No.13, Kalipucung, Blitar Timur</p>
+    <p>📞 +62 852-3400-6947</p>
+    <p>🕐 Buka setiap hari: 08.00 – 20.00 WIB</p>
+    <br/>
+    <a href="https://wa.me/6285234006947?text=Halo%20Bu%20Saini" class="btn" style="background:#25D366;">Chat WhatsApp</a>
+    <!-- Kalau mau tambah Maps: -->
+    <iframe src="https://maps.app.goo.gl/Ei5joYgd5ejmLAUo6" width="100%" height="350" style="border:0; margin-top:30px;"></iframe>
+  </section>
+
+  <footer>
+    © 2026 Warung Kutuk Bu Saini • Rasa Autentik Jawa Timur
+  </footer>
+
+</body>
+</html>
