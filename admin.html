@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Warung Kutuk - Update Stok</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: #f5f0e6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 450px;
+            width: 100%;
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #5a3e2b;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .sub {
+            text-align: center;
+            color: #8b6b4d;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        button {
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 48px;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .btn-tersedia {
+            background: #2e7d32;
+            color: white;
+            box-shadow: 0 2px 8px rgba(46,125,50,0.3);
+        }
+        .btn-terbatas {
+            background: #ed6c02;
+            color: white;
+            box-shadow: 0 2px 8px rgba(237,108,2,0.3);
+        }
+        .btn-habis {
+            background: #d32f2f;
+            color: white;
+            box-shadow: 0 2px 8px rgba(211,47,47,0.3);
+        }
+        .status-card {
+            background: #f8f4ef;
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+        .status-label {
+            font-size: 12px;
+            color: #8b6b4d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .current-status {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 6px;
+            color: #2c3e2f;
+        }
+        .last-update {
+            font-size: 12px;
+            color: #a1887f;
+            margin-top: 8px;
+        }
+        .success-msg {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #bcaa9a;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🍲 Warung Kutuk</h1>
+    <div class="sub">Panel Update Stok Real-time</div>
+
+    <div class="btn-group">
+        <button class="btn-tersedia" id="btnTersedia">✅ Tersedia (Stok Aman)</button>
+        <button class="btn-terbatas" id="btnTerbatas">⚠️ Stok Terbatas</button>
+        <button class="btn-habis" id="btnHabis">❌ Habis Hari Ini</button>
+    </div>
+
+    <div class="status-card">
+        <div class="status-label">Status Stok Saat Ini</div>
+        <div class="current-status" id="currentStatus">Memuat...</div>
+        <div class="last-update" id="lastUpdate"></div>
+    </div>
+    <div id="successMsg" style="min-height: 48px;"></div>
+    <footer>Perubahan akan langsung tampil di website utama</footer>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAzsaWDRt0oGDVkcfC5E-IebyNixc-J35Q",
+        authDomain: "warung-kutuk-bu-saini.firebaseapp.com",
+        projectId: "warung-kutuk-bu-saini",
+        storageBucket: "warung-kutuk-bu-saini.firebasestorage.app",
+        messagingSenderId: "35807002442",
+        appId: "1:35807002442:web:08a4166a0edd2618630bb3",
+        measurementId: "G-4QWPJ2909R"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const stokRef = ref(database, 'stok');
+
+    // Fungsi update stok
+    function updateStok(status, catatan = "") {
+        const now = new Date();
+        const formattedDate = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+        const formattedTime = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        
+        set(stokRef, {
+            status: status,
+            updated: `${formattedDate}, ${formattedTime}`,
+            catatan: catatan,
+            timestamp: Date.now()
+        }).then(() => {
+            const msgDiv = document.getElementById('successMsg');
+            msgDiv.innerHTML = '<div class="success-msg">✅ Stok berhasil diperbarui!</div>';
+            setTimeout(() => msgDiv.innerHTML = '', 2000);
+        }).catch((error) => {
+            console.error("Gagal update:", error);
+            const msgDiv = document.getElementById('successMsg');
+            msgDiv.innerHTML = '<div class="success-msg" style="background:#ffebee; color:#c62828;">❌ Gagal update, cek koneksi</div>';
+            setTimeout(() => msgDiv.innerHTML = '', 2000);
+        });
+    }
+
+    // Tampilkan status saat ini
+    onValue(stokRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            document.getElementById('currentStatus').innerHTML = data.status;
+            document.getElementById('lastUpdate').innerHTML = `Update terakhir: ${data.updated}`;
+        } else {
+            document.getElementById('currentStatus').innerHTML = "Belum ada data stok";
+        }
+    });
+
+    // Event listeners tombol
+    document.getElementById('btnTersedia').addEventListener('click', () => {
+        updateStok("✅ Tersedia - Datang pagi sebelum jam 10!", "Lodeh gabus + pecel sayur ready");
+    });
+    document.getElementById('btnTerbatas').addEventListener('click', () => {
+        updateStok("⚠️ Stok Terbatas - Sisa sedikit!", "Segera ke warung sebelum habis");
+    });
+    document.getElementById('btnHabis').addEventListener('click', () => {
+        updateStok("❌ Habis Hari Ini - Besok datang lagi ya!", "Terima kasih atas kunjungannya");
+    });
+</script>
+</body>
+</html>
