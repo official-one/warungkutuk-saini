@@ -701,7 +701,10 @@
           Buka Sekarang · 06.00–18.00 WIB
         </div>
         <div class="pill pill-warn">
-          ⚡ Sering habis sebelum dzuhur!
+          <div id="info-stok-realtime">
+            <strong>⚡ Info Stok</strong><br>
+            <em>Memuat data stok...</em>
+          </div>
         </div>
       </div>
     </div>
@@ -1000,5 +1003,51 @@
     }
   </script>
 
+  <!-- Firebase SDK dan konfigurasi - Tambahkan sebelum penutup </body> di index.html -->
+<script type="module">
+  // Import Firebase SDK
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+  // Konfigurasi Firebase BARU
+  const firebaseConfig = {
+    apiKey: "AIzaSyAmHSm_YDxz_z1XdlZ7fo51OdC2jl2x5nU",
+    authDomain: "warung-kutuk-bu-saini-cff7c.firebaseapp.com",
+    projectId: "warung-kutuk-bu-saini-cff7c",
+    storageBucket: "warung-kutuk-bu-saini-cff7c.firebasestorage.app",
+    messagingSenderId: "803494501223",
+    appId: "1:803494501223:web:ef17d20da4ed4dfca56dc2",
+    measurementId: "G-M9TRXCQFFV"
+  };
+
+  // Inisialisasi Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // Buat data stok awal
+  const stokRef = ref(database, 'stok');
+  set(stokRef, {
+    status: "Tersedia ✅ - Datang pagi sebelum jam 10!",
+    updated: new Date().toLocaleString('id-ID'),
+    catatan: "Lodeh ikan gabus & pecel sayur"
+  });
+
+  // Tampilkan data real-time ke halaman
+  onValue(stokRef, (snapshot) => {
+    const data = snapshot.val();
+    const infoStokElement = document.getElementById('info-stok-realtime');
+    if (infoStokElement) {
+      infoStokElement.innerHTML = `
+        <div style="background: #fff3e0; padding: 12px; border-radius: 8px; margin-top: 12px;">
+          <strong>🍲 Info Stok Hari Ini:</strong><br>
+          ${data.status}<br>
+          <small style="color: #666;">🕐 Update terakhir: ${data.updated}</small>
+          ${data.catatan ? `<br><small style="color: #b85c00;">📌 ${data.catatan}</small>` : ''}
+        </div>
+      `;
+    }
+  });
+</script>
+  
 </body>
 </html>
